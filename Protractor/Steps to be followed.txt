@@ -1,0 +1,94 @@
+1. Download and install JDK (Version1.8.0_251)
+
+2. Download Visual Studio Code
+ 
+3. Download Node JS
+
+4. Run Command on the terminal : npm install -g protractor (to install proractor library )
+ 
+5. Run command on terminal : npm install -g typescript 
+
+6. Run command on terminal: npm install @types/jasmine
+
+7. Run command on terminal : npm install @types/node
+ 
+8. Run command on terminal: webdriver-manager --ie
+npm webdriver-manager --standalone update
+npm webdriver-manager --ie update
+
+9. Run command on terminal: npm install --save protractor-html-reporter-2
+
+10. run command on terminal: npm install protractor-beautiful-reporter --save-dev
+
+11. Execution of Test Suite : tsc -w
+
+12. protractor config.js --suite SuiteName (example: protractor config.js --suite
+WithExactPatientSearch)
+
+
+13. npm audit fix (For fixing some of the warnings	)
+or npm audit fix --force
+
+14. npm fund
+
+15. To make reports by using beautiful reporter and protractor beautiful reporter, add the following in config.js file:
+	a. outside exports.config (on the top of code):
+
+	var HtmlReporter = require('protractor-beautiful-reporter');
+
+	b. inside exports.config:
+
+ 	 onPrepare: function () {
+  	  jasmine.getEnv().addReporter(new HtmlReporter({
+   	 baseDirectory: 'Report/screenshots'
+   	 }).getJasmine2Reporter());
+  	  }
+
+16. To remove-"Browser is being automated by test software"- Capabilities to be passed to the webdriver instance.
+
+      capabilities: {
+        
+        'browserName': 'chrome',
+      'chromeOptions': {
+        
+      'useAutomationExtension': false,
+      'excludeSwitches': ['enable-automation']
+
+      }
+
+17. Advanced config for reports:
+    onPrepare: function () {
+    browser.manage().window().maximize();
+  
+    // browser.manage().timeouts().implicitlyWait(10000);
+    browser.ignoreSynchronization = true;
+    jasmine.getEnv().addReporter(new HtmlReporter({
+      baseDirectory: 'Report/screenshots'
+    }).getJasmine2Reporter());
+   
+    //joiner between browser name and file name
+    screenshots.browserNameJoiner = ' - '; //this is the default
+    //folder of screenshots
+    screenshots.screenShotDirectory = 'target/screenshots';
+    //creates folder of screenshots
+    screenshots.createDirectory();
+  }
+
+18. Internet Explorer config.js file settings
+capabilities: {
+     //'directConnect': true,
+    // 'browserName': 'chrome',
+    // chromeOptions: {
+    //     args: ["--incognito"]
+    'browserName': 'internet explorer',
+    'javascriptEnabled': true,
+    'version': '11',
+    'nativeEvents': false,
+    'ignoreZoomSetting': true,
+    'requireWindowFocus': true,
+    'ignoreProtectedModeSettings': true,
+    
+    //  shardTestFiles: true,
+    //  maxInstances: 2,
+   //}
+   },

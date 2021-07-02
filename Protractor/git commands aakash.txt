@@ -1,0 +1,113 @@
+1.GoTo/Change to git folder
+
+cd git-folder-name
+
+
+2. Configure user mail and name:
+
+git config --global user.email "youremail@yourdomain.com"
+git config --global user.name "Mona Lisa" 
+
+
+3. Clone your repo:
+
+git clone <URL>
+git clone ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/repo_DW_Field_Automation
+
+
+4. Branch Options
+a.  Create a new branch:
+usage: git branch [branch name]  
+
+b. Delete the feature branch:
+Usage: git branch -d [branch name]  
+
+c. Switch from one branch to another:
+Usage: git checkout [branch name]  
+
+d. Create a new branch and also switch to it:
+Usage: git checkout -b [branch name]  
+
+
+5. Transform the current directory into a Git repository
+
+git init
+
+
+6. To fetch and download content from a remote repository and immediately update the local repository to match that content. 
+In short, git pull fetches (git fetch) the new commits and merges (git merge) these into your local branch
+
+git pull
+
+
+7. Retrieve the latest meta-data info from the original (yet doesn't do any file transferring. It's more like just checking to see if there are any changes available)
+
+git fetch origin
+
+
+8.Now, add your uploading files to the downloaded or cloned folder
+then, git status to view which files to add
+
+
+9. List which files are staged, unstaged, and untracked 
+(Unstaged changes are in Git but not marked for commit. Staged changes are in Git and marked for commit):
+
+git status
+
+
+10. Stage all changes in project for the next commit:
+
+git add .
+
+a. Stage all changes in <file> for the next commit.
+usage: git add <file>
+
+b. Stage all changes in <directory> for the next commit.
+usage: git add <directory>
+
+Then, git status to see your updates.
+
+
+11. Record changes to the repository:
+
+git commit -m “[ Type in the commit message]”
+
+a. Commit the staged snapshot. This will launch a text editor prompting you for a commit message.
+After you’ve entered a message, save the file and close the editor to create the actual commit:
+usage: git commit
+
+
+12. To upload local repository content to a central repository (By default origin/master):
+
+git push
+
+a.  where there are multiple remote repository and you want to specify which remote repository should be used for the push:
+
+usage: git push -u origin <branchname>
+
+(The -u flag is used to set origin as the upstream remote in your git config. As you push a branch successfully or up to date it, it adds upstream reference.
+As you push local branch with (the) git push -u option, that local branch is linked with the remote branch automatically. 
+The advantage is, you may use git pull without any arguments.)
+
+
+13. To delete folder from git repository:
+
+git rm -r folder-name
+
+
+
+Summary:
+
+1. git config --global user.email "youremail@yourdomain.com"
+2. git config --global user.name "Mona Lisa" 
+3. git clone <URL>
+4. git init
+5. git pull
+6. git fetch origin  (Server bata sabaiko branch lai load garcha)
+7. git status
+8. Copy your codes to location, git status to verify staged and unstaged changes
+9. git add .
+10. git commit -m “[ Type in the commit message]”
+11. git push -u origin <branchname>
+Eg: git push -u origin Field_Automation_V1.0
+
